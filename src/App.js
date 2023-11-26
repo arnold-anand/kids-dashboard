@@ -1,23 +1,31 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { supabase } from "./lib/helper/supabaseClient";
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
+import ThreeDots from "./components/ThreeDots";
+import TopBar from "./components/TopBar";
+import UpcomingEvents from "./components/UpcomingEvents";
+
 function App() {
   const [countries, setCountries] = useState([]);
   useEffect(() => {
-    getCountries();
+    // getCountries();
   }, []);
   async function getCountries() {
     const { data } = await supabase.from("statsTable").select();
     setCountries(data);
-    console.log(data)
+
   }
   return (
-    <ul>
-      {countries.map((country) => (
-        <li key={country.stats4}>{country.stats1}</li>
-      ))}
-    </ul>
+    <div className="m-10">
+      <ThreeDots></ThreeDots>
+      <TopBar/>
+      <div>
+        <UpcomingEvents/>
+      </div>
+      
+    </div>
+
   );
 }
 
