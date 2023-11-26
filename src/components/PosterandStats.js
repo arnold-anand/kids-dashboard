@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { images } from './UpcomingEvents';
-
+import ImageCarousel from './ImageCarousel';
 export default function PosterandStats() {
     const [loading, setLoading] = useState(true);
     const [imageUrls, setImageUrls] = useState([]);
@@ -8,12 +8,7 @@ export default function PosterandStats() {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                console.log(images);
-                // Simulate an asynchronous operation (e.g., fetching from an API)
-                // Replace the following line with your actual image fetching logic
                 await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Assuming images are now loaded, update the state
                 const urls = Object.values(images).map(item => item);
                 setImageUrls(urls);
                 setLoading(false);
@@ -24,13 +19,20 @@ export default function PosterandStats() {
         };
 
         fetchImages();
-    }, []); // No dependencies, it should run once on mount
+    }, []);
 
     return (
-        <div className='w-[50%] h-[100%]'>
-            {loading ? "Loading..." : imageUrls.map((image, index) => (
-                <img key={index} src={image} alt={`poster ${index + 1}`} />
-            ))}
+        <div className='w-[50%] h-[100%] flex flex-col items-center justify-center'>
+             {loading ? "Loading..." : <ImageCarousel imageUrls={imageUrls} />}
+             <div className='my-5 w-full'>
+
+                <div className='flex items-center justify-between '>
+                    <img className='w-[100px]' src="KH.png" alt="" />
+                    <img className='w-[60px]' src="EC.png" alt="" />
+                    <img className='w-[150px]' src="KK.png" alt="" />
+                </div>
+                
+             </div>
         </div>
     );
 }
