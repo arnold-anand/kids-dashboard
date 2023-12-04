@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../lib/helper/supabaseClient';
+import { EffectCoverflow, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/autoplay';
 
 export default function WOF() {
   const [wof, setwof] = useState([]);
@@ -29,20 +35,27 @@ export default function WOF() {
   }
   
   return (
-    <div className='w-[25%] h-[100%] border rounded-xl p-5 mx-3'>
+    <div className='w-[25%] h-[100%] border  rounded-xl p-5 mx-3'>
       <div>
         KIDS WALL OF FAME
       </div>
 
-      <div className='flex flex-col'>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        autoplay={{ delay: 5000 }}
+        modules={[EffectCoverflow, Autoplay]}
+      >
         {wof.map((item, index) => (
-          <div className='space-y-5 flex flex-col items-center justify-center py-5' key={index}>
-            <div><img className='w-32 rounded-full' src={profileImages[index]} alt={item.name} /></div>
-            <div>{item.name}</div>
-            <div className='text-justify'>{item.descriptions}</div>
-          </div>
+          <SwiperSlide key={index}>
+            <div className='space-y-5 flex flex-col items-center justify-center py-5'>
+              <div><img className='w-32 rounded-full' src={profileImages[index]} alt={item.name} /></div>
+              <div>{item.name}</div>
+              <div className='text-justify'>{item.descriptions}</div>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   )
 }
