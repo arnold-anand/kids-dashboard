@@ -1,9 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import { EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+
 import 'swiper/css/autoplay';
 
 export default function ImageCarousel({ imageUrls }) {
@@ -28,7 +28,9 @@ export default function ImageCarousel({ imageUrls }) {
       >
         {imageUrls.map((imageUrl, index) => (
           <SwiperSlide key={index}>
-            <img src={imageUrl} alt={`swiper-slide-${index}`} className="h-72 mx-auto" />
+            <div className=''>
+            <img src={imageUrl} alt={`swiper-slide-${index}`} className="h-[359px] w-[638px] mx-auto rounded" />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

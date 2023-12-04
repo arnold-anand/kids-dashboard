@@ -24,7 +24,7 @@ export default function UpcomingEvents() {
   }
 
   return (
-    <div className="w-[25%] h-[100%]">
+    <div className="min-w-[25%] h-[100%]">
       <div className="text-xl">UPCOMING</div>
 
       {Object.entries(

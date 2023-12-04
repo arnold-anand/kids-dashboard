@@ -8,13 +8,14 @@ import WOF from "./components/WOF";
 
 function App() {
   return (
-    <div className="m-10">
+    <div className="m-5">
       <ThreeDots></ThreeDots>
       <TopBar/>
       <div className="flex justify-between">
         <UpcomingEvents/>
         <PosterandStats/>
         <WOF></WOF>
+        <div></div>
       </div>
       
     </div>

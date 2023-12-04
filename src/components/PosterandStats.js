@@ -47,9 +47,12 @@ export default function PosterandStats() {
   }
 
   return (
-    <div className="w-[50%] h-[100%] flex flex-col items-center justify-center">
-      {loading ? "Loading..." : <ImageCarousel imageUrls={imageUrls} />}
-      <div className="flex items-center justify-between w-full">
+    <div className="w-[50%] h-[100%] flex flex-col items-center justify-center border p-5 rounded-xl">
+      {loading ? <div className="h-72 w-full text-center">Loading...</div> : <ImageCarousel imageUrls={imageUrls} />}
+      <div>
+        
+      </div>
+      <div className="flex items-center justify-between w-full my-5">
         <img className="w-[100px]" src="KH.png" alt="" />
         <img className="w-[60px]" src="EC.png" alt="" />
         <img className="w-[150px] -ml-10" src="KK.png" alt="" />
@@ -98,7 +101,7 @@ export default function PosterandStats() {
             </div>
             <div>
             {orgStat.organisation === "Karunya Kreatives" && (
-              <div className="karunyakreatives space-y-10 mr-10">
+              <div className="karunyakreatives space-y-10 mr-5">
                 <div className="flex flex-col items-center">
                   <span className="text-2xl">{orgStat.stats1}</span>
                   <span>Participants</span>
@@ -117,6 +120,7 @@ export default function PosterandStats() {
           </div>
         ))}
       </div>
+      
     </div>
   );
 }
