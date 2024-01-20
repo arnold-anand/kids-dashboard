@@ -8,7 +8,7 @@ import WOF from "./components/WOF";
 
 function App() {
   return (
-    <div className="m-5 bg-[]">
+    <div className="m-5 font-inter">
       <ThreeDots></ThreeDots>
       <TopBar/>
       <div className="flex justify-between">

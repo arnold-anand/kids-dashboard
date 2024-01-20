@@ -21,8 +21,8 @@ export default function TopBar() {
   return (
     <div className='my-5'>
       <div className='flex justify-between items-center'>
-        <img src="innovation.svg" className='w-20'/>
-        <div className='font-poppins text-xl'>KARUNYA INNOVATION AND DESIGN STUDIO</div>
+        <img src="KIDS Logo.png" className='w-20'/>
+        <div className='font-inter text-xl'>KARUNYA INNOVATION AND DESIGN STUDIO</div>
         <div className='timer' style={{ width: '230px' }}>
         {formatDateTime(date)}
         </div>
